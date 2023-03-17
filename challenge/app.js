@@ -31,7 +31,7 @@ class Nilai {
           for (let i = 0; i < arr.length - 1; i++) {
             let a = arr[i];
             let b = arr[i + 1];
-            
+
             if (b < a) {
               let temp = arr[i + 1];
               arr[i + 1] = arr[i];
@@ -64,20 +64,16 @@ class Nilai {
           output: process.stdout
         });
 
-        console.log('Input Nilai harus berupa angka (0 s/d 100)');
         rl.setPrompt('Inputkan nilai dan ketik "q" jika sudah selesai :\n');
         rl.prompt();
 
         rl.on('line', (input) => {
-          //TODO Validasi input
           if (input.trim().toLowerCase() === 'q') {
             rl.close();
-          } else if (input.trim() === '') {
-            console.log('Harap inputkan nilai atau "q" untuk keluar.');
           } else if (isNaN(input.trim())) {
-            console.log('Input Nilai harus berupa angka atau "q" untuk keluar.');
+            console.log('"q" untuk keluar.');
           } else if (input > 100 || input < 0) {
-            console.log('Input Nilai harus berupa angka (0 s/d 100) atau "q" untuk keluar.');
+            console.log('Input Nilai 1 - 100');
           } else {
             const nilai = Number(input.trim());
             this.arrDataNilai.push(nilai);
